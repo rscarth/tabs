@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zillow_tab</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        var tabs = document.getElementsByClassName("tab");
+
+        function tab_modifier(i) {
+
+            if(tabs[i].classList.contains("active")){
+                console.log("[Log] Class " + tabs[i] + " " + i + " is already active");
+            } else {
+                for(var j = 0; j < tabs.length; j++){
+                    console.log(tabs[j]);
+                    if(tabs[j].classList.contains("active")){
+                        console.log("[Log] Removing class active from " + tabs[j] + " " + j);
+                        tabs[j].classList.remove("active");
+                    } else {
+                        console.log("[Log] Adding class active to " + tabs[j] + " " + j);
+                        tabs[j].classList.add("active");
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="holder">
+        <div id="tab-holder">
+            <div class="tab active" onclick="tab_modifier(0)">
+                <div>Schedule A Tour</div>
+            </div>
+            <div class="tab" onclick="tab_modifier(1)">
+                <div>Request Info</div>
+            </div>
+        </div>
+        <div class="tab-body"></div>
+    </div>
+</body>
+</html>
